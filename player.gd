@@ -4,6 +4,7 @@ extends Area2D
 var screen_size # Size of the game window.
 signal hit
 
+@onready var sensor = $ray_sensor
 func _ready():
 	screen_size = get_viewport_rect().size
 	hide()
@@ -45,9 +46,14 @@ func _on_body_entered(body):
 	hit.emit()
 	# Must be deferred as we can't change physics properties on a physics callback.
 	$CollisionShape2D.set_deferred("disabled", true)
+	get_observation()
 
 func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+	
+func get_observation():
+	var obs = sensor.get_observation()
+	print(obs)
 

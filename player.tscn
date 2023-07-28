@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://84uqjf28t74c"]
+[gd_scene load_steps=10 format=3 uid="uid://84uqjf28t74c"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ic82h"]
 [ext_resource type="Texture2D" uid="uid://dkvbhuxc7ugck" path="res://art/playerGrey_up1.png" id="1_v1f81"]
 [ext_resource type="Texture2D" uid="uid://b4bqef7bfukwn" path="res://art/playerGrey_up2.png" id="2_xd4oc"]
 [ext_resource type="Texture2D" uid="uid://djoet7bgnboso" path="res://art/playerGrey_walk1.png" id="3_qpf5e"]
 [ext_resource type="Texture2D" uid="uid://cb5g3s0528ngn" path="res://art/playerGrey_walk2.png" id="4_htav5"]
+[ext_resource type="Script" path="res://controller.gd" id="6_bxp1k"]
+[ext_resource type="Script" path="res://addons/godot_rl_agents/sensors/sensors_2d/RaycastSensor2D.gd" id="7_ki4qp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dm4yi"]
 animations = [{
@@ -45,5 +47,13 @@ animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_8ok0b")
+
+[node name="AIController2D" type="Node2D" parent="."]
+script = ExtResource("6_bxp1k")
+
+[node name="ray_sensor" type="Node2D" parent="."]
+script = ExtResource("7_ki4qp")
+n_rays = 10.0
+ray_length = 150
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
