@@ -7,6 +7,6 @@ func _ready():
 	$AnimatedSprite2D.play(mob_types[randi() % mob_types.size()])
 
 
-
+# I changed here
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
