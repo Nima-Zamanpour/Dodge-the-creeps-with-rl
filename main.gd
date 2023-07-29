@@ -1,7 +1,7 @@
 extends Node
 
 @export var mob_scene: PackedScene
-var score
+var score = 0.
 
 
 func _on_player_hit():
