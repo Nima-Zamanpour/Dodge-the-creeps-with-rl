@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed = 400 # How fast the player will move (pixels/sec).
+@export var speed = 200 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 signal hit
 @onready var ai_controller = $AIController2D
@@ -46,7 +46,10 @@ func _physics_process(delta):
 		velocity = ai_controller.move_action
 		
 	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
+		if velocity.length() > 1:
+			velocity = velocity.normalized() * speed
+		else:
+			velocity = velocity * speed
 		$AnimatedSprite2D.play()
 	else:
 		$AnimatedSprite2D.stop()
@@ -64,5 +67,6 @@ func _physics_process(delta):
 	elif velocity.y != 0:
 		$AnimatedSprite2D.animation = "up"
 		$AnimatedSprite2D.flip_v = velocity.y > 0
+	print($ray_sensor.get_observation())
 		
 	

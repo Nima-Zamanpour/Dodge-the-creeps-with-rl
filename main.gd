@@ -61,6 +61,3 @@ func _ready():
 	new_game()
 
 
-
-#func _on_hud_start_game():
-#	new_game()

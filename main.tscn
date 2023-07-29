@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnwiujgohti1t"]
+[gd_scene load_steps=6 format=3 uid="uid://dnwiujgohti1t"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_fufbd"]
 [ext_resource type="PackedScene" uid="uid://84uqjf28t74c" path="res://player.tscn" id="1_o1cr5"]
 [ext_resource type="PackedScene" uid="uid://bneqbp875aj52" path="res://mob.tscn" id="2_kvgc2"]
 [ext_resource type="PackedScene" uid="uid://bg4yvuw6nxycr" path="res://hud.tscn" id="4_tkg68"]
-[ext_resource type="Script" path="res://addons/godot_rl_agents/sync.gd" id="5_mr2gr"]
 
 [sub_resource type="Curve2D" id="Curve2D_lbcgc"]
 _data = {
@@ -39,9 +38,6 @@ position = Vector2(1, 1)
 rotation = -0.00628923
 
 [node name="HUD" parent="." instance=ExtResource("4_tkg68")]
-
-[node name="Sync" type="Node" parent="."]
-script = ExtResource("5_mr2gr")
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
