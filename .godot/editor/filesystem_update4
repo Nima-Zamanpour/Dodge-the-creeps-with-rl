@@ -6,3 +6,4 @@ res://addons/godot_rl_agents/controller/ai_controller_2d.gd
 res://HUD.gd
 res://main.gd
 res://mob.gd
+res://hud.tscn

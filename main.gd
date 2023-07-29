@@ -3,6 +3,7 @@ extends Node
 @export var mob_scene: PackedScene
 var score = 0.
 
+@onready var ai_controller = $"Player/AIController2D"
 
 func _on_player_hit():
 	game_over() # Replace with function body.
@@ -11,6 +12,9 @@ func game_over():
 	$HUD.show_game_over()
 	$ScoreTimer.stop()
 	$MobTimer.stop()
+	ai_controller.done = true
+	ai_controller.needs_reset = true
+	new_game()
 
 func new_game():
 	score = 0
@@ -54,9 +58,9 @@ func _on_mob_timer_timeout():
 	add_child(mob)
 
 func _ready():
-	pass
-
-
-
-func _on_hud_start_game():
 	new_game()
+
+
+
+#func _on_hud_start_game():
+#	new_game()
