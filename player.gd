@@ -31,7 +31,6 @@ func _physics_process(delta):
 		#ball.reset()
 		return
 	
-	print(ai_controller.get_reward())
 	var velocity = Vector2.ZERO # The player's movement vector.
 	
 	if ai_controller.heuristic == "human":

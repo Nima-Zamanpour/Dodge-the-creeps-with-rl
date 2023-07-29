@@ -8,12 +8,14 @@ var y_action : float = 0.0
 
 var move_action : ItemList
 @onready var main = $"/root/Main"
+@onready var ray_sensor = $"../ray_sensor"
 
 func get_obs() -> Dictionary:
 	# get player's ray sensors
-	var obs = $ray_sensor.get_observation()
+	var obs = ray_sensor.get_observation()
 
 	return {"obs":obs}
+	
 
 func get_reward():	
 	return main.score
