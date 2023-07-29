@@ -3,11 +3,12 @@ extends Area2D
 @export var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 signal hit
+@onready var ai_controller2d = $AIController2D
 
-@onready var sensor = $ray_sensor
 func _ready():
 	screen_size = get_viewport_rect().size
 	hide()
+	ai_controller2d.init(self)
 
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
@@ -53,7 +54,3 @@ func start(pos):
 	show()
 	$CollisionShape2D.disabled = false
 	
-func get_observation():
-	var obs = sensor.get_observation()
-	print(obs)
-

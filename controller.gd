@@ -1,13 +1,16 @@
 extends AIController2D
 
 # Stores the action sampled for the agent's policy, running in python
-var move_action : float = 0.0
+
+var x_action : float = 0.0
+
+var y_action : float = 0.0
+
+var move_action : ItemList
 
 func get_obs() -> Dictionary:
-	# get the balls position and velocity in the paddle's frame of reference
-	var ball_pos = to_local(_player.ball.global_position)
-	var ball_vel = to_local(_player.ball.linear_velocity)
-	var obs = [ball_pos.x, ball_pos.z, ball_vel.x/10.0, ball_vel.z/10.0]
+	# get player's ray sensors
+	var obs = $ray_sensor.get_observation()
 
 	return {"obs":obs}
 
@@ -17,7 +20,7 @@ func get_reward() -> float:
 func get_action_space() -> Dictionary:
 	return {
 		"move_action" : {
-			"size": 1,
+			"size": 2,
 			"action_type": "continuous"
 		},
 		}
