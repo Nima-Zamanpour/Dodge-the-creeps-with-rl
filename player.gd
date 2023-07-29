@@ -64,7 +64,5 @@ func _physics_process(delta):
 	elif velocity.y != 0:
 		$AnimatedSprite2D.animation = "up"
 		$AnimatedSprite2D.flip_v = velocity.y > 0
-func game_over():
-	ai_controller.done = true
-	ai_controller.needs_reset = true
+		
 	

@@ -29,6 +29,5 @@ func get_action_space() -> Dictionary:
 		}
 	
 func set_action(action) -> void:	
-	move_action.x = action["move_action"][0]
-	move_action.y = action["move_action"][1]
-	move_action = clamp(move_action, -1.0, 1.0)
+	move_action.x =   clamp(action["move_action"][0], -1.0, 1.0)
+	move_action.y =  clamp(action["move_action"][1], -1.0, 1.0)
