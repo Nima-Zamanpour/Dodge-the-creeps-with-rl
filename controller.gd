@@ -6,7 +6,7 @@ var x_action : float = 0.0
 
 var y_action : float = 0.0
 
-var move_action : ItemList
+var move_action = Vector2.ZERO
 @onready var main = $"/root/Main"
 @onready var ray_sensor = $"../ray_sensor"
 
@@ -29,4 +29,6 @@ func get_action_space() -> Dictionary:
 		}
 	
 func set_action(action) -> void:	
-	move_action = clamp(action["move_action"][0], -1.0, 1.0)
+	move_action.x = action["move_action"][0]
+	move_action.y = action["move_action"][1]
+	move_action = clamp(move_action, -1.0, 1.0)
