@@ -8,7 +8,7 @@ var move_action = Vector2.ZERO
 
 func get_obs() -> Dictionary:
 	# get player's ray sensors
-	var obs = ray_sensor.get_observation() # make 0 all to 111111111111111111111111111111111111111
+	var obs = ray_sensor.get_observation()
 
 	return {"obs":obs}
 	
