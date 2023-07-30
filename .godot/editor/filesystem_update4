@@ -2,3 +2,5 @@ res://main.tscn
 res://hud.tscn
 res://player.tscn
 res://controller.gd
+res://HUD.gd
+res://main.gd
