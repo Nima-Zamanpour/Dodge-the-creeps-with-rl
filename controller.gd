@@ -14,7 +14,7 @@ func get_obs() -> Dictionary:
 	
 
 func get_reward():	# each time step the player is alive
-	return 1
+	return reward
 	
 func get_action_space() -> Dictionary:
 	return {

@@ -1,7 +1,7 @@
 extends Node2D
 class_name AIController2D
 
-@export var reset_after := 1000
+@export var reset_after := 100000
 
 var heuristic := "human"
 var done := false

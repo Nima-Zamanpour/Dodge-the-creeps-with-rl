@@ -4,3 +4,6 @@ res://player.tscn
 res://controller.gd
 res://HUD.gd
 res://main.gd
+res://player.gd
+res://mob.tscn
+res://addons/godot_rl_agents/controller/ai_controller_2d.gd

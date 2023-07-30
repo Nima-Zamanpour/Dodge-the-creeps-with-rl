@@ -28,7 +28,6 @@ func start(pos):
 func _physics_process(delta):
 	if ai_controller.needs_reset:
 		ai_controller.reset()
-		#ball.reset()
 		return
 	
 	var velocity = Vector2.ZERO # The player's movement vector.
@@ -67,6 +66,5 @@ func _physics_process(delta):
 	elif velocity.y != 0:
 		$AnimatedSprite2D.animation = "up"
 		$AnimatedSprite2D.flip_v = velocity.y > 0
-	print($ray_sensor.get_observation())
 		
 	

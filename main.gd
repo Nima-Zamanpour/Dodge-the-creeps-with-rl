@@ -11,6 +11,7 @@ func _on_player_hit():
 func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
+	ai_controller.reward = -10
 	ai_controller.done = true
 	ai_controller.needs_reset = true
 	new_game()
@@ -23,6 +24,7 @@ func new_game():
 	get_tree().call_group("mobs", "queue_free")
 	
 func _on_score_timer_timeout():
+	ai_controller.reward += 1
 	score += 1
 	$HUD.update_score(score)
 
