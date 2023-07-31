@@ -13,15 +13,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
-func _on_body_entered():
-	hide() # Player disappears after being hit.
-	hit.emit()
-	# Must be deferred as we can't change physics properties on a physics callback.
-	$CollisionShape2D.set_deferred("disabled", false)
-	$"/root/Main".game_over()
-	
-
 	
 func start(pos):
 	position = pos
@@ -73,5 +64,17 @@ func _physics_process(delta):
 	# Check if the node's position is outside the viewport
 	var viewport_rect = get_viewport_rect()
 	var temp_position = self.global_position
+	
+	####   game over is player hits edge of window  ####
+	if temp_position.x <= 0 or temp_position.x >= viewport_rect.size.x or temp_position.y <= 0 or temp_position.y >= viewport_rect.size.y:
+		hide() # Player disappears after being hit.
+		hit.emit()
+		# Must be deferred as we can't change physics properties on a physics callback.
+		$CollisionShape2D.set_deferred("disabled", false)
 
 
+func _on_body_entered(body):
+	hide() # Player disappears after being hit.
+	hit.emit()
+	# Must be deferred as we can't change physics properties on a physics callback.
+	$CollisionShape2D.set_deferred("disabled", false)
