@@ -1,16 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnwiujgohti1t"]
+[gd_scene load_steps=6 format=3 uid="uid://dnwiujgohti1t"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_fufbd"]
 [ext_resource type="PackedScene" uid="uid://84uqjf28t74c" path="res://player.tscn" id="1_o1cr5"]
 [ext_resource type="PackedScene" uid="uid://bneqbp875aj52" path="res://mob.tscn" id="2_kvgc2"]
 [ext_resource type="PackedScene" uid="uid://bg4yvuw6nxycr" path="res://hud.tscn" id="4_tkg68"]
-[ext_resource type="Script" path="res://addons/godot_rl_agents/sync.gd" id="5_tcwrm"]
 
 [sub_resource type="Curve2D" id="Curve2D_lbcgc"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 478, -2, 0, 0, 0, 0, 482, 716, 0, 0, 0, 0, -1, 712, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 1, 1)
+"points": PackedVector2Array(0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 724, 3, 0, 0, 0, 0, 724, 360, 0, 0, 0, 0, 724, 722, 0, 0, 0, 0, -1, 712, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 1, 1)
 }
-point_count = 6
+point_count = 7
 
 [node name="Main" type="Node"]
 script = ExtResource("1_fufbd")
@@ -28,21 +27,17 @@ wait_time = 2.0
 one_shot = true
 
 [node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(240, 450)
+position = Vector2(360, 360)
 
 [node name="MobPath" type="Path2D" parent="."]
+position = Vector2(-2, 0)
 curve = SubResource("Curve2D_lbcgc")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 position = Vector2(1, 1)
-rotation = -0.00628923
+rotation = 0.00276624
 
 [node name="HUD" parent="." instance=ExtResource("4_tkg68")]
-
-[node name="Sync" type="Node" parent="."]
-script = ExtResource("5_tcwrm")
-action_repeat = 50
-speed_up = 100
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

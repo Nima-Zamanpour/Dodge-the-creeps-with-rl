@@ -1,6 +1,15 @@
 res://main.tscn
-res://main.gd
 res://hud.tscn
 res://player.tscn
+<<<<<<< HEAD
 res://mob.tscn
+res://player.gd
+res://main.gd
+=======
 res://controller.gd
+res://HUD.gd
+res://main.gd
+res://player.gd
+res://mob.tscn
+res://addons/godot_rl_agents/controller/ai_controller_2d.gd
+>>>>>>> parent of b2c1284 (working better)

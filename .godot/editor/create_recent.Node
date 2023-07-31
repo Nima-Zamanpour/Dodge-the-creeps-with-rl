@@ -1,4 +1,5 @@
 Sync
+VisibleOnScreenEnabler2D
 RaycastSensor2D
 AIController2D
 Timer
@@ -10,7 +11,6 @@ HTTPRequest
 Path2D
 Marker2D
 Node
-VisibleOnScreenEnabler2D
 CollisionShape2D
 AnimatedSprite2D
 RigidBody2D

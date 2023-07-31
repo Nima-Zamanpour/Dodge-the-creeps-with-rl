@@ -3,6 +3,7 @@ extends Area2D
 @export var speed = 200 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 signal hit
+signal hit_edge
 @onready var ai_controller = $AIController2D
 
 func _ready():
@@ -14,18 +15,21 @@ func _process(delta):
 	pass
 
 
-func _on_body_entered(body):
+func _on_body_entered():
 	hide() # Player disappears after being hit.
 	hit.emit()
 	# Must be deferred as we can't change physics properties on a physics callback.
 	$CollisionShape2D.set_deferred("disabled", false)
+	
 
+	
 func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
 	
 func _physics_process(delta):
+	
 	if ai_controller.needs_reset:
 		ai_controller.reset()
 		return
@@ -66,5 +70,8 @@ func _physics_process(delta):
 	elif velocity.y != 0:
 		$AnimatedSprite2D.animation = "up"
 		$AnimatedSprite2D.flip_v = velocity.y > 0
-		
-	
+	# Check if the node's position is outside the viewport
+	var viewport_rect = get_viewport_rect()
+	var temp_position = self.global_position
+
+

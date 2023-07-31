@@ -1,45 +1,32 @@
 extends Node
 
 @export var mob_scene: PackedScene
-var score = 0.0
-var n_steps = 0
-var MAX_STEPS = 100000
+var score = 0.
 
 @onready var ai_controller = $"Player/AIController2D"
 
 func _on_player_hit():
 	game_over() # Replace with function body.
+"func _on_player_hit_edge():
+	game_over()"
 	
 func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
+	ai_controller.reward = -10
 	ai_controller.done = true
-	ai_controller.reward -= 20.0
+	ai_controller.needs_reset = true
 	new_game()
 
 func new_game():
-	ai_controller.needs_reset = false
 	score = 0
-	n_steps = 0 
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$HUD.update_score(score)
 	get_tree().call_group("mobs", "queue_free")
 	
-
-func _process(delta):
-	n_steps +=1    
-	ai_controller.reward += 0.1
-	if n_steps >= MAX_STEPS:
-		ai_controller.done = true
-		ai_controller.needs_reset = true
-
-	if ai_controller.needs_reset:
-		ai_controller.needs_reset = false
-		new_game()
-		return
-		
 func _on_score_timer_timeout():
+	ai_controller.reward += 1
 	score += 1
 	$HUD.update_score(score)
 
@@ -66,17 +53,13 @@ func _on_mob_timer_timeout():
 	mob.rotation = direction
 
 	# Choose the velocity for the mob.
-	var velocity = Vector2(randf_range(150.0, 250.0), 0.0)
+	var velocity = Vector2(randf_range(50.0, 150.0), 0.0)
 	mob.linear_velocity = velocity.rotated(direction)
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
 
-func _ready():	
+func _ready():
 	new_game()
-	
-func reset_if_done():
-	if ai_controller.done:
-		new_game()
 
 
