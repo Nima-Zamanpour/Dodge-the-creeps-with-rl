@@ -3,7 +3,6 @@ extends Area2D
 @export var speed = 200 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 signal hit
-signal hit_edge
 @onready var ai_controller = $AIController2D
 
 func _ready():
@@ -20,6 +19,7 @@ func _on_body_entered():
 	hit.emit()
 	# Must be deferred as we can't change physics properties on a physics callback.
 	$CollisionShape2D.set_deferred("disabled", false)
+	$"/root/Main".game_over()
 	
 
 	

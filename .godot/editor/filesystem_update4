@@ -1,21 +1,3 @@
 res://main.tscn
-res://hud.tscn
-res://player.tscn
-<<<<<<< HEAD
-<<<<<<< HEAD
-res://mob.tscn
-res://player.gd
-res://main.gd
-=======
-=======
->>>>>>> parent of b2c1284 (working better)
-res://controller.gd
-res://HUD.gd
 res://main.gd
 res://player.gd
-res://mob.tscn
-res://addons/godot_rl_agents/controller/ai_controller_2d.gd
-<<<<<<< HEAD
->>>>>>> parent of b2c1284 (working better)
-=======
->>>>>>> parent of b2c1284 (working better)

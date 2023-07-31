@@ -13,7 +13,7 @@ func _on_player_hit():
 func game_over():
 	$ScoreTimer.stop()
 	$MobTimer.stop()
-	ai_controller.reward = -10
+	ai_controller.reward = -20
 	ai_controller.done = true
 	ai_controller.needs_reset = true
 	new_game()
