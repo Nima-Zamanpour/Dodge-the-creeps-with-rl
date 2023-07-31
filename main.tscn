@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnwiujgohti1t"]
+[gd_scene load_steps=8 format=3 uid="uid://dnwiujgohti1t"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_fufbd"]
 [ext_resource type="PackedScene" uid="uid://84uqjf28t74c" path="res://player.tscn" id="1_o1cr5"]
 [ext_resource type="PackedScene" uid="uid://bneqbp875aj52" path="res://mob.tscn" id="2_kvgc2"]
 [ext_resource type="PackedScene" uid="uid://bg4yvuw6nxycr" path="res://hud.tscn" id="4_tkg68"]
+[ext_resource type="Script" path="res://addons/godot_rl_agents/sync.gd" id="5_ofryf"]
+[ext_resource type="PackedScene" uid="uid://thur7sh3id6w" path="res://wall.tscn" id="6_4naup"]
 
 [sub_resource type="Curve2D" id="Curve2D_lbcgc"]
 _data = {
@@ -38,6 +40,23 @@ position = Vector2(1, 1)
 rotation = 0.00276624
 
 [node name="HUD" parent="." instance=ExtResource("4_tkg68")]
+
+[node name="wall" parent="." instance=ExtResource("6_4naup")]
+
+[node name="wall4" parent="." instance=ExtResource("6_4naup")]
+position = Vector2(717, 0)
+rotation = 1.5708
+
+[node name="wall3" parent="." instance=ExtResource("6_4naup")]
+position = Vector2(718, 734)
+rotation = 1.5708
+
+[node name="wall2" parent="." instance=ExtResource("6_4naup")]
+position = Vector2(733, 5)
+
+[node name="Sync" type="Node" parent="."]
+script = ExtResource("5_ofryf")
+speed_up = 10
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

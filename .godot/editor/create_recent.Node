@@ -1,4 +1,7 @@
 Sync
+ColorRect
+CollisionShape2D
+RigidBody2D
 VisibleOnScreenEnabler2D
 RaycastSensor2D
 AIController2D
@@ -11,7 +14,5 @@ HTTPRequest
 Path2D
 Marker2D
 Node
-CollisionShape2D
 AnimatedSprite2D
-RigidBody2D
 Area2D

@@ -53,7 +53,7 @@ script = ExtResource("6_bxp1k")
 
 [node name="ray_sensor" type="Node2D" parent="."]
 script = ExtResource("7_ki4qp")
-n_rays = 10.0
+n_rays = 20.0
 ray_length = 150
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
