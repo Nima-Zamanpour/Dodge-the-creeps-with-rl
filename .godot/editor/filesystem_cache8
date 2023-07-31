@@ -1,5 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
 <<<<<<< HEAD
+<<<<<<< HEAD
 ::res://::1690779727
 controller.gd::GDScript::-1::1690704666::0::1::::<>AIController2D<>::
 HUD.gd::GDScript::-1::1690695646::0::1::::<>CanvasLayer<>::
@@ -11,6 +12,19 @@ mob.gd::GDScript::-1::1690662225::0::1::::<>RigidBody2D<>::
 mob.tscn::PackedScene::3308107260004762459::1690751660::0::1::::<><>::uid://dh51lpc8shec::::res://art/enemyFlyingAlt_1.png<>res://mob.gd<>uid://g4q1bpcei7mv::::res://art/enemyFlyingAlt_2.png<>uid://bpn3j8iwefr2t::::res://art/enemySwimming_1.png<>uid://bcqgf5hl5mpad::::res://art/enemySwimming_2.png<>uid://ni7j2y2ofwx3::::res://art/enemyWalking_1.png<>uid://j27xarfnvlp1::::res://art/enemyWalking_2.png
 player.gd::GDScript::-1::1690751168::0::1::::<>Area2D<>::
 player.tscn::PackedScene::2377342189186423460::1690751660::0::1::::<><>::res://player.gd<>uid://dkvbhuxc7ugck::::res://art/playerGrey_up1.png<>uid://b4bqef7bfukwn::::res://art/playerGrey_up2.png<>uid://djoet7bgnboso::::res://art/playerGrey_walk1.png<>uid://cb5g3s0528ngn::::res://art/playerGrey_walk2.png<>res://controller.gd<>res://addons/godot_rl_agents/sensors/sensors_2d/RaycastSensor2D.gd
+=======
+::res://::1690693966
+controller.gd::GDScript::-1::1690667103::0::1::::<>AIController2D<>::
+HUD.gd::GDScript::-1::1690663504::0::1::::<>CanvasLayer<>::
+hud.tscn::PackedScene::2868916495766929181::1690667005::0::1::::<><>::res://HUD.gd<>uid://r3c1a11n11ne::::res://fonts/Xolonium-Regular.ttf
+icon.svg::CompressedTexture2D::526698424311908695::1690456678::1690456700::1::::<><>::
+main.gd::GDScript::-1::1690664966::0::1::::<>Node<>::
+main.tscn::PackedScene::8117655263408453871::1690667103::0::1::::<><>::res://main.gd<>uid://84uqjf28t74c::::res://player.tscn<>uid://bneqbp875aj52::::res://mob.tscn<>uid://bg4yvuw6nxycr::::res://hud.tscn
+mob.gd::GDScript::-1::1690662225::0::1::::<>RigidBody2D<>::
+mob.tscn::PackedScene::3308107260004762459::1690608148::0::1::::<><>::uid://dh51lpc8shec
+player.gd::GDScript::-1::1690667003::0::1::::<>Area2D<>::
+player.tscn::PackedScene::2377342189186423460::1690663192::0::1::::<><>::res://player.gd<>uid://dkvbhuxc7ugck
+>>>>>>> parent of b2c1284 (working better)
 =======
 ::res://::1690693966
 controller.gd::GDScript::-1::1690667103::0::1::::<>AIController2D<>::
